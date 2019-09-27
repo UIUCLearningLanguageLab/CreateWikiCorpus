@@ -32,7 +32,18 @@ Note that folders specified by the ```-c``` flag are not uploaded to each machin
 Modules inside such folders are nonetheless importable because ```ludwigcluster``` automatically appends the remote root folder to ```sys.path```.
 
 Note that ```-c data/ wikiExtractor/``` must only be specified once, and can be omitted subsequently to save time. 
-Don't forget add ```-c data/ wikiExtractor/``` whenever changes to the files in either folder have been made. 
+Don't forget add ```-c data/ wikiExtractor/``` whenever changes to the files in either folder have been made.
+
+### MacOs
+
+On MacOS, the mounting point for the shared drive will be different.
+To upload data or third-party source code to the shared drive, ```ludwigclsuter``` must be explicitly told where to find the shared drive:
+
+```
+ludwig -r 1 -c data/ wikiExtractor/ -mnt /Volumes/research_data
+```
+
+The ```-mnt``` flag is used to specify where the shared drive is mounted on the user's machine.
 
 ## Technical Notes
 
