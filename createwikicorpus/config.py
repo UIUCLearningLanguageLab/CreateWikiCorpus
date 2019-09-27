@@ -5,7 +5,7 @@ is_linux = sys.platform == 'linux'
 
 
 class RemoteDirs:
-    root = Path('/{}/research_data'.format('media' if is_linux else 'Volumes')) / 'Word_V_World'
+    root = Path('/{}/research_data'.format('media' if is_linux else 'Volumes')) / 'CreateWikiCorpus'
     runs = root / 'runs'
     data = root / 'data'
 

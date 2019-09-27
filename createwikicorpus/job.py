@@ -3,7 +3,6 @@ from multiprocessing import cpu_count
 
 from wikiExtractor.WikiExtractor import extract_from_wiki
 from createwikicorpus.remove_tags import remove_tags
-from createwikicorpus.params import param2default
 from createwikicorpus import config
 
 
