@@ -1,6 +1,6 @@
 import re
 
-from word_v_world import config
+from createwikicorpus import config
 
 
 def remove_tags(output_folder_name):

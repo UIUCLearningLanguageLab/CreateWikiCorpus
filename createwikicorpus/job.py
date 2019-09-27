@@ -2,9 +2,9 @@ import re
 from multiprocessing import cpu_count
 
 from wikiExtractor.WikiExtractor import extract_from_wiki
-from word_v_world.remove_tags import remove_tags
-from word_v_world.params import param2default
-from word_v_world import config
+from createwikicorpus.remove_tags import remove_tags
+from createwikicorpus.params import param2default
+from createwikicorpus import config
 
 
 class Args:

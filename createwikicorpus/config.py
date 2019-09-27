@@ -12,7 +12,7 @@ class RemoteDirs:
 
 class LocalDirs:
     root = Path(__file__).parent.parent
-    src = root / 'word_v_world'
+    src = root / 'createwikicorpus'
     runs = root / '{}_runs'.format(src.name)
     wiki_output = root / 'output'
 

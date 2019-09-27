@@ -1,4 +1,4 @@
-from word_v_world import config
+from createwikicorpus import config
 
 # pass unique integers to each machine to allow unique start_id
 # all the values must be in a list

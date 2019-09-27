@@ -2504,7 +2504,7 @@ def makeExternalLink(url, anchor):
 
 def makeExternalImage(url, alt=''):
     if options.keepLinks:
-        return '<img word_v_world="%s" alt="%s">' % (url, alt)
+        return '<img src="%s" alt="%s">' % (url, alt)
     else:
         return alt
 
