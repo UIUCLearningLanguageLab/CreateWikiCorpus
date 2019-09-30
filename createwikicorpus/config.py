@@ -1,8 +1,11 @@
 from pathlib import Path
+import sys
+
+is_linux = sys.platform == 'linux'
 
 
 class RemoteDirs:
-    root = Path('/media/research_data') / 'CreateWikiCorpus'
+    root = Path('/{}/research_data'.format('media' if is_linux else 'Volumes')) / 'CreateWikiCorpus'
     runs = root / 'runs'
     data = root / 'data'
 

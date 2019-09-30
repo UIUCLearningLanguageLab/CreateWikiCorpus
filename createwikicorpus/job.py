@@ -1,9 +1,11 @@
 import re
 from multiprocessing import cpu_count
+import shutil
 
 from wikiExtractor.WikiExtractor import extract_from_wiki
 from createwikicorpus.remove_tags import remove_tags
 from createwikicorpus import config
+
 
 
 class Args:
@@ -33,9 +35,9 @@ class Args:
 
 
 def save_text_to_shared_drive(titles, bodies, param2val):
-    job_name = config.RemoteDirs.runs / param2val['param_name'] / param2val['job_name']
+    job_name = config.LocalDirs.runs / param2val['param_name'] / param2val['job_name']
     if not job_name.is_dir():
-        job_name.mkdir(parents=True)  # this is not ideal, because folders are created before job has completed
+        job_name.mkdir(parents=True)
     out_titles_p = job_name / 'titles.txt'
     out_bodies_p = job_name / 'bodies.txt'
 
@@ -47,6 +49,17 @@ def save_text_to_shared_drive(titles, bodies, param2val):
 
         f1.write(title + '\n')
         f2.write(flattened + '\n')
+
+    # wait until content in buffer is written to disk
+    f1.close()
+    f2.close()
+
+    # copy
+    src = config.LocalDirs.runs / param2val['param_name'] / param2val['job_name']
+    dst = config.RemoteDirs.runs / param2val['param_name'] / param2val['job_name']
+
+    print('Copying contents of {} to {}'.format(src, dst))
+    shutil.copytree(str(src), str(dst))
 
 
 def main(param2val):  # param2val will be different on each machine

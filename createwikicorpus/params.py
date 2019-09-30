@@ -5,12 +5,11 @@ from createwikicorpus import config
 param2requests = {'part': [0, 1, 2, 3, 4, 5, 6],
                   'input_file_name': ['enwiki-20190920-pages-articles-multistream.xml.bz2']}
 
+
 param2default = {'part': 0,
                  'num_machines': 7,
                  'input_file_name': 'dummy_input.xml'}
 
 for input_file_name in param2requests['input_file_name']:
-    if not (config.RemoteDirs.root / input_file_name).exists():
-        print('WARNING: Using dummy xml file as input file because {} could not be found'.format(input_file_name))
-        param2requests['input_file_name'] = [param2default['input_file_name']]
-        break
+    if not (config.RemoteDirs.data / input_file_name).exists():
+        raise FileNotFoundError('Did not find input file at {}'.format(config.RemoteDirs.data))
