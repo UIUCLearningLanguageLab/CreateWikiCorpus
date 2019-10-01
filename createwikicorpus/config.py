@@ -1,7 +1,6 @@
 from pathlib import Path
 import sys
 
-
 is_linux = sys.platform == 'linux'
 
 

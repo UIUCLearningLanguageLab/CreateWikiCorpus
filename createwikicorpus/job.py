@@ -7,7 +7,6 @@ from createwikicorpus.remove_tags import remove_tags
 from createwikicorpus import config
 
 
-
 class Args:
     bytes = "50M"
     compress = False
