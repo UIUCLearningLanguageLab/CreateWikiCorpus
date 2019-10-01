@@ -37,7 +37,7 @@ Don't forget add ```-c data/ wikiExtractor/``` whenever changes to the files in 
 ### MacOs
 
 On MacOS, the mounting point for the shared drive will be different.
-To upload data or third-party source code to the shared drive, ```ludwigclsuter``` must be explicitly told where to find the shared drive:
+To upload data or third-party source code to the shared drive, ```ludwigcluster``` must be explicitly told where to find the shared drive:
 
 ```
 ludwig -r 1 -c data/ wikiExtractor/ -mnt /Volumes/research_data

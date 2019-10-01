@@ -36,7 +36,7 @@ def get_cleaned_titles_and_bodies(output_folder_name, min_length):
             bodies.append(body)
 
     assert len(bodies) == len(titles)
-    print('Removed tags from {} articles'.format(num_articles))
+    print('Cleaned {} articles'.format(num_articles))
 
     return titles, bodies
 
