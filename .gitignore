@@ -1,9 +1,7 @@
 venv
 .idea
 
-text/*
+text
 data/enwiki*
-output/*
-
-
-word_v_world/*.txt
+extractor_output
+createwikicorpus_runs
