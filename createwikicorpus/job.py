@@ -81,4 +81,4 @@ def main(param2val):  # param2val will be different on each machine
     print('Word_V_World: Saving to text...')
     save_text_to_shared_drive(titles, bodies, param2val)
 
-    return []  # ludwigcluster requires a list (empty, or containing pandas dataframes)
+    return []  # ludwigcluster requires a list (empty, or containing pandas data frames)

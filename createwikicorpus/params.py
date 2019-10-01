@@ -1,6 +1,5 @@
 from createwikicorpus import config
 
-
 # pass unique integers to each machine to allow unique start_id
 # all the values must be in a list
 param2requests = {'part': [0, 1, 2, 3, 4, 5, 6],
