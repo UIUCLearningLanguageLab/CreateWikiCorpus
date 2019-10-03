@@ -74,9 +74,6 @@ def main(param2val):  # param2val will be different on each machine
     input_file_name = param2val['input_file_name']
     min_body_length = param2val['min_body_length']
 
-    if config.Global.debug:
-        input_file_name = 'dummy_input.xml'
-
     # overwrite Args attributes with values in param2val
     for k, v in param2val.items():
         if k in Args.__dict__:

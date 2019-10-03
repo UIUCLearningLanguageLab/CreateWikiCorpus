@@ -42,8 +42,19 @@ To upload data or third-party source code to the shared drive, ```ludwigcluster`
 ```
 ludwig -r 1 -c data/ wikiExtractor/ -mnt /Volumes/research_data
 ```
-
 The ```-mnt``` flag is used to specify where the shared drive is mounted on the user's machine.
+
+### Verifying output
+
+A simple way to verify the output is to count the number of articles:
+
+```
+cd /media/research_data/CreateWikiCorpus
+find runs/ -name titles.txt -print | xargs wc -l
+```
+
+Verify that the total number of lines is close to the total number of articles in the Wikipedia dump file.
+
 
 ## Technical Notes
 
