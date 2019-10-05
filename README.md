@@ -16,7 +16,7 @@ This is a new project that uses Wikipedia as a corpus from which to extract word
 ## Running the script
 
 The corpus-creation is computationally expensive and is designed to be run in parallel across multiple machines.
-To do so, [ludwigcluster](https://github.com/phueb/LudwigCluster) is used. 
+To do so, [ludwig](https://github.com/phueb/Ludwig) is used. 
 Jobs are submitted by invoking the its command line interface:
 
 ```

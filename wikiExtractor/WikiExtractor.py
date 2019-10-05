@@ -2863,7 +2863,7 @@ def process_dump(input_file, template_file, out_file, file_size, file_compress,
     :param file_size: max size of each extracted file, or None for no max (one file)
     :param file_compress: whether to compress files with bzip.
     :param process_count: number of extraction processes to spawn.
-    :param part: integer related to ludwigcluster
+    :param part: integer related to package Ludwig
     :param num_machines: integer related to ludwigcluster
     """
 
