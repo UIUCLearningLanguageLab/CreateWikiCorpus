@@ -20,8 +20,8 @@ param2default = {'part': 0,
 
                  # required for third-party wikiExtractor
                  'links': False,
-                 'sections': True,
-                 'lists': True,
+                 'sections': False,
+                 'lists': False,
                  'namespaces': "",
                  'templates': {},
                  'no_templates': True,
