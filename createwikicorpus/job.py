@@ -17,7 +17,7 @@ class Args:
     compress = False
     json = False
     html = False
-    quiet = False
+    quiet = True
     debug = False
     article = False
     log_file = False
