@@ -74,6 +74,10 @@ def main(param2val):  # param2val will be different on each machine
     input_file_name = param2val['input_file_name']
     min_body_length = param2val['min_body_length']
 
+    # check that input file exists
+    if not (config.RemoteDirs.data / input_file_name).exists():
+        raise FileNotFoundError('Did not find input file at {}'.format(config.RemoteDirs.data))
+
     # overwrite Args attributes with values in param2val
     for k, v in param2val.items():
         if k in Args.__dict__:

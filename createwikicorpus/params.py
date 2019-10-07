@@ -1,4 +1,3 @@
-from createwikicorpus import config
 
 # pass unique integers to each machine to allow unique start_id
 # all the values must be in a list
@@ -20,8 +19,8 @@ param2default = {'part': 0,
 
                  # required for third-party wikiExtractor
                  'links': False,
-                 'sections': True,
-                 'lists': True,
+                 'sections': False,
+                 'lists': False,
                  'namespaces': "",
                  'templates': {},
                  'no_templates': True,
@@ -33,7 +32,3 @@ param2default = {'part': 0,
                  'keep_tables': False,
                  'filter_category': None
                  }
-
-for input_file_name in param2requests['input_file_name']:
-    if not (config.RemoteDirs.data / input_file_name).exists():
-        raise FileNotFoundError('Did not find input file at {}'.format(config.RemoteDirs.data))
