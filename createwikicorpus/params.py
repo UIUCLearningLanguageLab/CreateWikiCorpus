@@ -5,7 +5,7 @@ param2requests = {'part': [0, 1, 2, 3, 4, 5, 6],
                   'num_machines': [7],
                   'input_file_name': ['enwiki-20190920-pages-articles-multistream.xml.bz2']}
 
-# used to overwrite parameters when --debug flag is on (when submitting jobs to Ludwig)
+# used to overwrite parameters when --debug flag is on (when calling "ludwig-local")
 param2debug = {'part': 0,
                'num_machines': 1,
                'min_body_length': 1,
@@ -32,3 +32,14 @@ param2default = {'part': 0,
                  'keep_tables': False,
                  'filter_category': None
                  }
+
+# some hard constraints specific to creating Wikipedia corpora on Ludwig
+if len(param2requests['part']) != param2requests['num_machines'][0]:
+    raise ValueError('"num_machines" must match length of "part".')
+
+if len(param2requests['num_machines']) != 1:
+    raise ValueError('It does not make sense to vary "num_machines" across jobs')
+
+if list(range(param2requests['num_machines'][0])) != param2requests['part']:
+    raise ValueError('Make sure "part" points to a sequence of consecutive integers,'
+                     'ending in "num_machines"-1.')
