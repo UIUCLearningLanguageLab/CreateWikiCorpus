@@ -3,6 +3,7 @@
 # all the values must be in a list
 param2requests = {'part': [0, 1, 2, 3, 4, 5, 6],
                   'num_machines': [7],
+                  'no_templates': [False, True],
                   'input_file_name': ['enwiki-20190920-pages-articles-multistream.xml.bz2']}
 
 # used to overwrite parameters when --debug flag is on (when calling "ludwig-local")

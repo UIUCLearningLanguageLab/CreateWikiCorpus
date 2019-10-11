@@ -40,7 +40,7 @@ class Args:
     filter_category = None
 
 
-def save_to_shared_drive(titles, bodies, param2val):
+def save_locally(titles, bodies, param2val):
     job_name = config.LocalDirs.runs / param2val['param_name'] / param2val['job_name']
     if not job_name.is_dir():
         job_name.mkdir(parents=True)
@@ -60,12 +60,6 @@ def save_to_shared_drive(titles, bodies, param2val):
     f1.close()
     f2.close()
 
-    # copy
-    src = config.LocalDirs.runs / param2val['param_name'] / param2val['job_name']
-    dst = config.RemoteDirs.runs / param2val['param_name'] / param2val['job_name']
-    print('Copying contents of {} to {}'.format(src, dst))
-    shutil.copytree(str(src), str(dst))
-
 
 def main(param2val):  # param2val will be different on each machine
 
@@ -84,6 +78,9 @@ def main(param2val):  # param2val will be different on each machine
             setattr(Args, k, v)
             print('Setting {}={}'.format(k, v))
 
+    # remove any text files from previous job - otherwise they will all be processed by step 2
+    shutil.rmtree(config.LocalDirs.extractor_output)
+
     # step 1
     print('Word_V_World: Starting extraction with part={} and num_machines={}'.format(part, num_machines))
     Args.input = str(config.RemoteDirs.data / input_file_name)  # always put xml file on shared drive
@@ -96,6 +93,12 @@ def main(param2val):  # param2val will be different on each machine
 
     # step 3
     print('Word_V_World: Saving to text...')
-    save_to_shared_drive(titles, bodies, param2val)
+    save_locally(titles, bodies, param2val)
 
-    return []  # Ludwig pacakge requires a list (empty, or containing pandas data frames)
+    # step 4
+    src = config.LocalDirs.runs / param2val['param_name'] / param2val['job_name']
+    dst = config.RemoteDirs.runs / param2val['param_name'] / param2val['job_name']
+    print('Word-V-World: Copying contents of {} to {}...'.format(src, dst))
+    shutil.copytree(str(src), str(dst))
+
+    return []  # Ludwig package requires a list (empty, or containing pandas series objects)
