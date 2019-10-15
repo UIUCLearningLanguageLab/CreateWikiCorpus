@@ -24,10 +24,10 @@ class Args:
     version = False
     processes = max(1, cpu_count() - 1)
 
-    # arguments that affect do affect content
+    # arguments that do affect content (overwritten by params.param2requests and params.param2defaults)
     links = False
-    sections = True
-    lists = True
+    sections = False
+    lists = False
     namespaces = ""
     templates = {}
     no_templates = True
@@ -79,7 +79,8 @@ def main(param2val):  # param2val will be different on each machine
             print('Setting {}={}'.format(k, v))
 
     # remove any text files from previous job - otherwise they will all be processed by step 2
-    shutil.rmtree(config.LocalDirs.extractor_output)
+    if config.LocalDirs.extractor_output.exists():
+        shutil.rmtree(config.LocalDirs.extractor_output)
 
     # step 1
     print('Word_V_World: Starting extraction with part={} and num_machines={}'.format(part, num_machines))

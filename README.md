@@ -50,11 +50,18 @@ A simple way to verify the output is to count the number of articles:
 
 ```
 cd /media/research_data/CreateWikiCorpus
-find runs/ -name titles.txt -print | xargs wc -l
+find runs/ -name titles.txt | xargs wc -l
 ```
 
 Verify that the total number of lines is close to the total number of articles in the Wikipedia dump file.
 
+If there are multiple corpora in `runs/`, you need to specify a subset of folder corresponding to the corpus of interest.
+For example, say the parameter configuration 15-21 are associated with a corpus, the total number of articles can be calculated by:
+
+```bash
+cd /media/research_data/CreateWikiCorpus/runs
+find param_15 param_16 param_17 param_18 param_19 param_20 param_21 -name titles.txt | xargs wc -l
+```
 
 ## Technical Notes
 
