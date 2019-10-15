@@ -33,7 +33,7 @@ class Args:
     no_templates = True
     revision = False
     min_text_length = 0
-    filter_disambig_pages = False
+    filter_disambig_pages = True
     ignored_tags = ""
     discard_elements = ""
     keep_tables = False
