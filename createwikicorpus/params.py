@@ -31,7 +31,7 @@ param2default = {'part': 0,
                  'ignored_tags': "",
                  'discard_elements': "",
                  'keep_tables': False,
-                 'filter_category': None
+                 'filter_category': 'wiki_categories.txt'  # TODO test
                  }
 
 # some hard constraints specific to creating Wikipedia corpora on Ludwig
