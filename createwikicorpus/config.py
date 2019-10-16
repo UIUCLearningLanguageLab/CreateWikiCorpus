@@ -1,13 +1,12 @@
 from pathlib import Path
 import sys
 
-if 'win' in sys.platform:
-    raise SystemExit('Ludwig does not support Windows')
+if sys.platform == 'darwin':
+    mnt_point = '/Volumes'
 elif 'linux' == sys.platform:
     mnt_point = '/media'
 else:
-    # assume MacOS
-    mnt_point = '/Volumes'
+    raise SystemExit('Ludwig does not support this platform')
 
 
 class RemoteDirs:
