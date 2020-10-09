@@ -1,14 +1,18 @@
 
 # Create-Wiki-Corpus
 
-Research code to convert Wikipedia dump files into raw text files with each article in a new line. 
-No markup-language, or HTML tags. Real sentences only.
+Research code to extract raw text from Wikipedia dump files. 
+No markup-language, or HTML tags. The results are a number of text files, each containing articles separated by newlines.
+
+## Note
+
+:warning: For lab-internal use only. Requires access to the UIUC Learning & Language Lab file server. 
 
 ## Running the script
 
 The corpus-creation is computationally expensive and is designed to be run in parallel across multiple machines.
 To do so, [ludwig](https://github.com/phueb/Ludwig) is used. 
-Jobs are submitted by invoking the its command line interface:
+Jobs are submitted by invoking its command line interface:
 
 ```
 ludwig -r 1 -c data/ wikiExtractor/
